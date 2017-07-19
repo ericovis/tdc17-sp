@@ -1,0 +1,22 @@
+--- #Install Jenkins and deployment tools on EC2
+
+- hosts: all
+  become: yes
+  roles:
+    - role: geerlingguy.mysql
+      mysql_root_password: super-secure-password
+      mysql_databases:
+        - name: gogs
+          encoding: latin1
+          collation: latin1_general_ci
+      mysql_users:
+        - name: gogs
+          host: "%"
+          password: password
+          priv: "gogs.*:ALL"
+    - role: geerlingguy.gogs
+      gogs_http_port: "80"
+      gogs_use_mysql: true
+      gogs_db_name: gogs
+      gogs_db_username: gogs
+      gogs_db_password: password
