@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'ansible-galaxy install -r requirements.yml -p roles'
+                sh 'ansible-galaxy install -r requirements.yml -p roles --force'
             }
         }
         stage('Validate') {
