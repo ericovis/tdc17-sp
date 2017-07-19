@@ -21,7 +21,7 @@
       "ami_name": "gogs-standalone-{{timestamp}}",
       "ami_regions": ["us-east-1"],
       "tags":{
-        "Name": "Gogs"
+        "Name": "Gogs-Live"
       }
     }
   ]
